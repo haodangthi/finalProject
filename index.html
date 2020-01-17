@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link
+      rel="stylesheet"
+      href="file:///C:/Users/LenaVu/Downloads/fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/css/all.css"
+    />
+    
+  </head>
+  <body>
+    <header>
+      <section class="header__section">
+        <nav>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="index.html">Home</a></li>
+            <li class="nav__item"><a href="#main__section">Find a test</a></li>
+            <li class="nav__item"><a href="">Contacts</a></li>
+          </ul>
+        </nav>
+
+        <div class="banner">
+          <div class="action">
+            <h1 class="header">Test yourself</h1>
+            <button class="actionBtn">Log in</button>
+          </div>
+          <div class="slider">
+          
+          </div>
+        </div>
+
+        
+      </section>
+    </header>
+    <main>
+      <section class="main__section" id="main__section">
+        <div class="container">
+          <div class="filters__container">
+
+            <div class="level__filters">
+              <ul>Choose level
+                <li ><input type="checkbox" id="beginner"><label for="beginner"></label>Beginner</li>
+                <li><input type="checkbox" id="intermediate"><label for="intermediate"></label>Intermediate</li>
+                <li><input type="checkbox" id="advanced"><label for="advanced"></label>Advanced</li>
+              </ul>
+            </div>
+
+            <div class="subject__filters">
+              <ul>Choose a subject
+                <li><input type="checkbox" id="english"><label for="english"></label>English</li>
+                <li><input type="checkbox" id="math"><label for="math"></label>Math</li>
+                <li><input type="checkbox" id="ukrainian"><label for="ukrainian"></label>Ukranian</li>
+              </ul>
+            </div>
+
+            <div class="time__filters">
+              <ul>Choose time
+                <li><input type="checkbox" id="30"><label for="30"></label>30 minutes</li>
+                <li><input type="checkbox" id="60"><label for="60"></label>60 minutes</li>
+                <li><input type="checkbox" id="90"><label for="90"></label>90 minutes</li>
+              </ul>
+            </div>
+
+
+
+
+
+
+          </div>
+          <div class="search__container">
+            <input type="text" id="findTest"  placeholder="Search for tests..">
+
+            <button id="filter__btn">Apply</button>
+          </div>
+        </div>
+
+        <div class="allTests__container">
+                  <template>
+                     <div class="test__container">
+
+                    <div class="test__wrapper">
+                      <div class="test__img"></div>
+                      
+                      <div class="test__info jc-center">
+                        <div class="wrapper">
+                        <h3 class="test__name">Present Simple</h3>
+                        <p class="level"> <i class="far fa-chart-bar"></i>Level:<span>beginner</span></p>
+                        <p class="test__subject"><i class="fas fa-book"></i><span></span></p>
+                        <p class="time"><i class="far fa-clock"></i><span></span> minutes</p>
+                        <p class="score"><i class="far fa-star"></i><span></span></p>
+                        
+                        </div>
+                      </div>
+                      <div class="btn__start__test">Start</div>
+
+                    </div>
+                  </div>
+                  </template>
+         
+        </div>
+
+
+      </section>
+    </main>
+    <footer></footer>
+
+    <!-- 
+
+    <div class="timer">
+        <span .class="minutes">30</span>:<span .class="minutes">00</span>
+        
+      </div>
+      <button id="startBtn">Start</button>
+      
+      <div class="datePassed">
+        
+      </div> -->
+
+    <!-- >
+
+<div class="question">
+    <h1 data-q="quest1"></h1>
+    <ul data-ans="all">
+        <li data-ans="1">  <input type="radio" name="answer" class="" id="answerCheckbox1">
+            <label for="answerCheckbox1" class="">
+              answer1
+            </label></li>
+        <li data-ans="2">  <input type="radio" name="answer" class="" id="answerCheckbox2">
+            <label for="answerCheckbox2" class="">
+              answer2
+            </label></li>
+        <li data-ans="3">  <input type="radio" name="answer" class="" id="answerCheckbox3">
+            <label for="answerCheckbox3" class="">
+              answer3
+            </label></li>
+        <li data-ans="4">  <input type="radio" name="answer" class="" id="answerCheckbox4">
+            <label for="answerCheckbox4" class="">
+              answer4
+            </label></li>
+    </ul>
+    <button class="apply" >apply </button>
+</div> -->
+<script src="script/tests.js" type="text/javascript"></script>
+<script src="script/filter.js" type="text/javascript"></script>
+<script src="script/createTest.js" type="text/javascript"></script>
+    <script src="script/classes.js"></script>
+    <script src="script/search.js" type="text/javascript"></script>
+    <script src="script/main.js" type="text/javascript"></script>
+
+    <!-- <script src="script/timer.js"></script> -->
+  </body>
+</html>
