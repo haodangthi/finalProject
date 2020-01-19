@@ -10,6 +10,9 @@
     font-size: 18px;
     font-family: 'Muli', sans-serif;
 }
+html {
+    scroll-behavior: smooth;
+  }
 
 section{
     width: 960px;

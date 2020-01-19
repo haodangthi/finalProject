@@ -20,10 +20,16 @@ function createTestHTML(textName, textLevel, textSubj, textMin, textSc) {
   time.classList.add("time");
   let score = document.createElement("p");
   score.classList.add("score");
+
+  // btn start
+  
   let btnStart = document.createElement("div");
   btnStart.classList.add("btn__start__test");
   let start = document.createTextNode("Start");
   btnStart.appendChild(start);
+  let a=document.createElement("a");
+  a.setAttribute("href","test.html");
+  a.appendChild(btnStart);
 
   //creating icons
 
@@ -44,7 +50,7 @@ function createTestHTML(textName, textLevel, textSubj, textMin, textSc) {
   scoreIcon.classList.add("fa-star");
 
   //appending
-  let infoArray = [h3, subj, level, time, score, btnStart];
+  let infoArray = [h3, subj, level, time, score, a];
   for (var i = 0; i < infoArray.length; i++) {
     wrapper.appendChild(infoArray[i]);
   }

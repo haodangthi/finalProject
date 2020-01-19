@@ -1,8 +1,11 @@
+// CLASS ALL TESTS CREATOR
+
 class AllTests {
   constructor(tests) {
     this.createdTests = [];
-    this.testIndex = 0;
+    this.testIndex = 0; // for counting created Tests
     this.filteredTests = [];
+    this.user;
   }
 
   createAllTests() {
@@ -39,14 +42,15 @@ class AllTests {
 
 class Test {
   constructor(test, testIndex) {
+    this.testName = test.testName;
+    this.questions = test.testQuestions; //array of questions(objects)
     this.testIndex = testIndex;
     this.testLevel = test.testLevel;
     this.testSubject = test.testSubject;
     this.time = test.time;
     this.score = test.score;
     //this.img=test.img;
-    this.testName = test.testName;
-    this.questions = test.testQuestions; //array of questions(objects)
+    
     this.currentPoints = 0;
     this.finalScore;
     this.createdQuestions = [];
@@ -57,7 +61,9 @@ class Test {
     this.btnStart;
     // this.templateCopy =  document.querySelector("template").content.cloneNode(true);
   }
-  createTestInfo() {
+
+
+  createTestInfo() { //creates HTML for test 
     this.html = createTestHTML(
       this.testName,
       this.testLevel,
@@ -66,7 +72,15 @@ class Test {
       this.score
     );
     this.btnStart = this.html.querySelector(".btn__start__test");
+    let thisTestIndex=this.testIndex;
+    this.btnStart.onclick=function(){
+      console.log("btn start");
+      
+      localStorage.setItem('thisTestIndex', thisTestIndex.toString());
+
+    }
   }
+  
 
   showCard() {
     this.createTestInfo();
@@ -90,6 +104,8 @@ class Test {
   }
 }
 
+// CLASS QUESTION
+
 class Question {
   constructor(thisTest, questions, questionIndex) {
     // Test obj, Question object, index of created (last) question
@@ -98,6 +114,7 @@ class Question {
     this.question = questions.question;
     this.answeredCorrectly = false;
     this.test = thisTest;
+    this.testIndex=thisTest.testIndex;
 
     this[1] = questions[1];
     this[2] = questions[2];
@@ -116,21 +133,7 @@ class Question {
       thisTest
     );
   }
-  // this.btnNext.onclick=function(){
-  //  thisTest.createQuestion()
+  
 
-  // }
-
-  createNextBtn(thisTest) {
-    let btnNext = document.createElement("button");
-    btnNext.classList.add("nextQ");
-    let textBtn = document.createTextNode("Next");
-    btnNext.appendChild(textBtn);
-    btnNext.onclick = function() {
-      let nextQuestion = thisTest.createQuestion();
-      document.body.appendChild(nextQuestion.html);
-    };
-
-    return btnNext;
-  }
+  
 }

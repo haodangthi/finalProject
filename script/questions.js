@@ -6,10 +6,17 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
   let quesH1 = document.createElement("h1");
   let quesText = document.createTextNode(quest);
   quesH1.appendChild(quesText);
-  //q.classList.add("");
+  
+  //text of the question 
   quesH1.setAttribute("data-q", "quest1");
+  //ul
   let answList = document.createElement("ul");
   answList.setAttribute("data-ans", "all");
+  //btn "NEXT"
+  questionObj.btnNext=createNextBtn(thisTest,questionObj);
+
+
+
   let answers = [a1, a2, a3, a4];
   for (var i = 0; i < 4; i++) {
     let li = document.createElement("li");
@@ -20,6 +27,7 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
     input.setAttribute("id", `answerCheckbox${i + 1}`);
     let label = document.createElement("label");
     label.setAttribute("for", `answerCheckbox${i + 1}`);
+    
 
     let answerText = document.createTextNode(answers[i]);
     label.appendChild(answerText);
@@ -41,21 +49,26 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
       }
     };
     answList.appendChild(li);
+    
+
   }
   q.appendChild(quesH1);
   q.appendChild(answList);
+  q.appendChild(questionObj.btnNext);
   return q;
 }
 
 
-function createNextBtn(thisTest) {
+function createNextBtn(thisTest,thisQuest) {
   let btnNext = document.createElement("button");
   btnNext.classList.add("nextQ");
   let textBtn = document.createTextNode("Next");
   btnNext.appendChild(textBtn);
   btnNext.onclick = function() {
+    
     let nextQuestion = thisTest.createQuestion();
     document.body.appendChild(nextQuestion.html);
+    thisTest.createdQuestions[thisQuest.questionIndex].html.style.display="none";
   };
 
   return btnNext;

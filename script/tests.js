@@ -10,7 +10,7 @@ let test1 = [
   },
   {
     question: "Does she ___ to school?",
-    questionIndex: 1,
+    
     1: "go",
     2: "going",
     3: "goes",
@@ -20,7 +20,7 @@ let test1 = [
   },
   {
     question: "He _____ not want to go to the movies.",
-    questionIndex: 1,
+    
     1: "do",
     2: "does",
     3: " is",
@@ -30,7 +30,7 @@ let test1 = [
   },
   {
     question: "It _____ a beautiful day today.",
-    questionIndex: 1,
+    
     1: "are",
     2: "is",
     3: "or",
@@ -40,7 +40,7 @@ let test1 = [
   },
   {
     question: " They're not here. They ____________ right now.",
-    questionIndex: 1,
+    
     1: "go to school",
     2: "swim at the beach",
     3: "are on holiday",
@@ -49,6 +49,59 @@ let test1 = [
     usersAnswer: null
   }
 ];
+
+let test2 = [
+  {
+    question: "I _____ to the mall after school.",
+    1: "goed",
+    2: "went",
+    3: "gone",
+    4: "go",
+    correctAnswer: "2",
+    usersAnswer: null
+  },
+  {
+    question: "My brother _____ a bear an hour ago.",
+    
+    1: "see",
+    2: "looked",
+    3: "saw",
+    4: "seen",
+    correctAnswer: "3",
+    usersAnswer: null
+  },
+  {
+    question: "_____ Mike visit his grandmother last night",
+    questionIndex: 1,
+    1: "Did",
+    2: "Does",
+    3: "Was",
+    4: "Is",
+    correctAnswer: "1",
+    usersAnswer: null
+  },
+  {
+    question: "Alex did not _____ last weekend.",
+    
+    1: "working",
+    2: "worked",
+    3: "works",
+    4: "work",
+    correctAnswer: "4",
+    usersAnswer: null
+  },
+  {
+    question: "_____ Judy and Liz at last month's meeting?",
+    
+    1: "Was",
+    2: "Were",
+    3: "Did",
+    4: "Do",
+    correctAnswer: "2",
+    usersAnswer: null
+  }
+];
+
 
 var tests = [
   {
@@ -62,7 +115,7 @@ var tests = [
   },
   {
     testName: "Past Simple",
-    testQuestions: test1,
+    testQuestions: test2,
     testLevel: "advanced",
     testSubject: "english",
     time: 30,
