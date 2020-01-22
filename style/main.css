@@ -132,11 +132,95 @@ header{
     background-size: cover;
 
 }
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+.action{
+    padding-top: 150px;
+    display: flex;
+    /* align-content: flex-end; */
+    flex-direction: column;
+    /* align-content: center;
+    align-items: center; */
+}
+.banner__text h1{
+    margin-bottom: 20px;
+    
+}
+.actionBtn{
+    width: 250px;
+    height: 40px;
+    padding: 11px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #fff;
+    background: green;
+    line-height: 0px;
+}
+.login .actionBtn{
+    border: 1px solid green;
+    color: green;
+    background: none;
+    
+    
+}
+.login{
+    
+    display: flex;
 
+    
+}
+.login__img img{
+    width: 40px;
+    height: 40px;
+    
+}
+.username{
+    font-size: 24px;
+    padding: 10px;
+}
+
+.username,.login__img img,.login .actionBtn{
+    margin: 20px 10px 0 0;
+}
 .header{
     color: #00DC7D;
     font-size: 40px;
  }
+
+ /* MODAL */
+ .header__section{
+     position: relative;
+ }
+ 
+ .close{
+    font-size: 40px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0%;
+    right: 3%;
+    cursor: pointer;
+ }
+ .modal{
+     width: 400px;
+     height: 400px;
+     position: absolute;
+     border: 1px solid black;
+     top: 25%;
+     left:25%;
+     background-color: white;
+ }
+
+ .login__input{
+     margin: 30px;
+     display: flex;
+     flex-direction: column;
+     
+ }
+ 
 
 /* //MAIN
 */
@@ -174,7 +258,7 @@ input[type="checkbox"]{
     display: none;
 }
 
-label{
+.filters__container label{
     width: 25px;
     height: 25px;
     display: block;
@@ -197,6 +281,7 @@ input[type="checkbox"]:checked + label{
     padding: 10px;
     background: #00DC7D;
     margin-top: 25px;
+    cursor: pointer;
 }
 
 
@@ -207,4 +292,28 @@ input[type="checkbox"]:checked + label{
     
     flex-wrap: wrap;
     padding-top:40px ; 
+}
+
+/* PAGINATION */
+.pagination__wrapper{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.pagination{
+    display: flex;
+    
+}
+.pagination__item1,.pagination__item{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 10px;
+}
+
+.pagination__item1:hover,.pagination__item:hover{
+    background-color: chartreuse;
+    cursor: pointer;
 }

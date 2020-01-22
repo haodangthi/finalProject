@@ -126,7 +126,7 @@ var tests = [
     testQuestions: test1,
     testLevel: "intermediate",
     testSubject: "english",
-    time: 60,
+    time: 30,
     score: 10
   },
   {
@@ -135,6 +135,70 @@ var tests = [
     testLevel: "advanced",
     testSubject: "english",
     time: 60,
+    score: 10
+  },
+  {
+    testName: "Present Perfect Continuous",
+    testQuestions: test1,
+    testLevel: "intermediate",
+    testSubject: "english",
+    time: 60,
+    score: 10
+  },
+  {
+    testName: "Past Perfect Continuous",
+    testQuestions: test1,
+    testLevel: "advanced",
+    testSubject: "english",
+    time: 90,
+    score: 10
+  },{
+    testName: "Present Simple 2",
+    testQuestions: test1,
+    testLevel: "beginner",
+    testSubject: "english",
+    time: 30,
+    score: 10
+    // img:"../img/illustrations/clip-bio-technologies.png"
+  },
+  {
+    testName: "Past Simple",
+    testQuestions: test2,
+    testLevel: "advanced",
+    testSubject: "english",
+    time: 30,
+    score: 10
+  },
+  {
+    testName: "Articles",
+    testQuestions: test1,
+    testLevel: "intermediate",
+    testSubject: "english",
+    time: 30,
+    score: 10
+  },
+  {
+    testName: "Future Continuous",
+    testQuestions: test1,
+    testLevel: "advanced",
+    testSubject: "english",
+    time: 60,
+    score: 10
+  },
+  {
+    testName: "Present Perfect Continuous",
+    testQuestions: test1,
+    testLevel: "intermediate",
+    testSubject: "english",
+    time: 60,
+    score: 10
+  },
+  {
+    testName: "Past Perfect Continuous",
+    testQuestions: test1,
+    testLevel: "advanced",
+    testSubject: "english",
+    time: 90,
     score: 10
   }
 ];

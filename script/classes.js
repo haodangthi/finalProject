@@ -6,13 +6,21 @@ class AllTests {
     this.testIndex = 0; // for counting created Tests
     this.filteredTests = [];
     this.user;
+    this.currentPage=0;
+    this.shownTests;
   }
 
   createAllTests() {
+    //
+    let allTestCont=document.querySelector(".allTests__container");
+    
     for (var i = 0; i < tests.length; i++) {
-      this.createTest();
+      let t=this.createTest();
+      t.createTestInfo();
+      t.html.style.display="none";
+      allTestCont.appendChild(t.html);
     }
-    this.showAllTests(this.createdTests);
+    //this.showAllTests(this.createdTests);
   }
   createTest() {
     let t = new Test(tests[this.testIndex], this.testIndex);
@@ -21,23 +29,38 @@ class AllTests {
     this.testIndex++;
     return t;
   }
+  
 
-  showAllTests(arrayOfTests) {
-    for (let i = 0; i < arrayOfTests.length; i++) {
+//shows items on the page
+  showAllTests(arrayOfTests,pageIndex,itemsShown) {
+    
+    arrayOfTests.forEach(e => {
+      //e.remove();
+      e.html.style.display="none";
+    });
+   
+    let start=pageIndex+pageIndex*(itemsShown-1);
+    let end;
+    if(arrayOfTests.length<itemsShown){
+      end=arrayOfTests.length;
+    }else{
+      end=start+itemsShown;
+    }
+    
+    for (let i = start; i < end; i++) {
       arrayOfTests[i].showCard();
     }
+    
+    
   }
 
   filterTest() {
-    let allTests = Array.from(
-      document.querySelector(".allTests__container").children
-    );
-    allTests.forEach(e => {
-      e.remove();
-    });
+    this.filteredTests.forEach(e=>e.html.style.display="none");
     this.filteredTests = filter(this.createdTests);
-    this.showAllTests(this.filteredTests);
+    this.showAllTests(this.filteredTests,0,6);
   }
+
+  
 }
 
 class Test {
@@ -56,7 +79,7 @@ class Test {
     this.createdQuestions = [];
     this.answeredQuestions = [];
     this.questionIndex = 0;
-    this.currentQuestionIndex;
+    this.currentQuestionIndex=0;
     this.html;
     this.btnStart;
     // this.templateCopy =  document.querySelector("template").content.cloneNode(true);
@@ -82,9 +105,8 @@ class Test {
   }
   
 
-  showCard() {
-    this.createTestInfo();
-    document.querySelector(".allTests__container").appendChild(this.html);
+  showCard() { //card =>карточка теста
+    this.html.style.display="";
   }
   createQuestion() {
     let q = new Question(
@@ -115,6 +137,7 @@ class Question {
     this.answeredCorrectly = false;
     this.test = thisTest;
     this.testIndex=thisTest.testIndex;
+    this.isShown=false;
 
     this[1] = questions[1];
     this[2] = questions[2];

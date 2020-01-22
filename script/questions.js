@@ -12,8 +12,9 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
   //ul
   let answList = document.createElement("ul");
   answList.setAttribute("data-ans", "all");
+
   //btn "NEXT"
-  questionObj.btnNext=createNextBtn(thisTest,questionObj);
+  //questionObj.btnNext=createNextBtn(thisTest,questionObj);
 
 
 
@@ -23,7 +24,7 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
     li.setAttribute("data-ans", `${i + 1}`);
     let input = document.createElement("input");
     input.setAttribute("type", "radio");
-    input.setAttribute("name", "answer");
+    input.setAttribute("name", `quest${questionObj.questionIndex}`);
     input.setAttribute("id", `answerCheckbox${i + 1}`);
     let label = document.createElement("label");
     label.setAttribute("for", `answerCheckbox${i + 1}`);
@@ -54,22 +55,24 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
   }
   q.appendChild(quesH1);
   q.appendChild(answList);
-  q.appendChild(questionObj.btnNext);
+  //q.appendChild(questionObj.btnNext);
   return q;
 }
 
+//creates Next button for a 
 
-function createNextBtn(thisTest,thisQuest) {
-  let btnNext = document.createElement("button");
-  btnNext.classList.add("nextQ");
-  let textBtn = document.createTextNode("Next");
-  btnNext.appendChild(textBtn);
-  btnNext.onclick = function() {
+
+// function createNextBtn(thisTest,thisQuest) {
+//   let btnNext = document.createElement("button");
+//   btnNext.classList.add("nextQ");
+//   let textBtn = document.createTextNode("Next");
+//   btnNext.appendChild(textBtn);
+//   btnNext.onclick = function() {
     
-    let nextQuestion = thisTest.createQuestion();
-    document.body.appendChild(nextQuestion.html);
-    thisTest.createdQuestions[thisQuest.questionIndex].html.style.display="none";
-  };
+//     let nextQuestion = thisTest.createQuestion();
+//     document.querySelector(".question__container").appendChild(nextQuestion.html);
+//     thisTest.createdQuestions[thisQuest.questionIndex].html.style.display="none";
+//   };
 
-  return btnNext;
-}
+//   return btnNext;
+// }
