@@ -47,7 +47,7 @@ function filter(arrayOfTest) {
   let timeTest = [];
 
   for (let i = 0; i < levelFilters.length; i++) {
-    //  test =tests.filter((t)=>t,testLevel==levelFilters[i].id);
+    
     for (var j = 0; j < arrayOfTest.length; j++) {
       if (arrayOfTest[j].testLevel == levelFilters[i].id) {
         showTest.push(arrayOfTest[j]);
@@ -55,7 +55,7 @@ function filter(arrayOfTest) {
     }
   }
 
-  console.log(showTest);
+  
 
   for (let i = 0; i < subjectFilters.length; i++) {
     for (let j = 0; j < showTest.length; j++) {
@@ -66,7 +66,6 @@ function filter(arrayOfTest) {
     }
   }
 
-  console.log(subjTest);
   for (let i = 0; i < timeFilters.length; i++) {
     for (let j = 0; j < subjTest.length; j++) {
       if (subjTest[j].time == +timeFilters[i].id) {
@@ -74,7 +73,7 @@ function filter(arrayOfTest) {
       }
     }
   }
-  console.log(timeTest);
+  
 
   return timeTest;
 }

@@ -4,23 +4,25 @@ class AllTests {
   constructor(tests) {
     this.createdTests = [];
     this.testIndex = 0; // for counting created Tests
+    this.userIndex=0;
     this.filteredTests = [];
-    this.user;
-    this.currentPage=0;
+    this.currentUser=JSON.parse(localStorage.getItem("currentUser"));
+    this.allUsers=JSON.parse(localStorage.getItem("AllUsers"));
+    this.currentPage = 0;
     this.shownTests;
   }
 
   createAllTests() {
     //
-    let allTestCont=document.querySelector(".allTests__container");
-    
+    let allTestCont = document.querySelector(".allTests__container");
+
     for (var i = 0; i < tests.length; i++) {
-      let t=this.createTest();
+      let t = this.createTest();
       t.createTestInfo();
-      t.html.style.display="none";
+      t.html.style.display = "none";
       allTestCont.appendChild(t.html);
     }
-    //this.showAllTests(this.createdTests);
+    
   }
   createTest() {
     let t = new Test(tests[this.testIndex], this.testIndex);
@@ -29,38 +31,32 @@ class AllTests {
     this.testIndex++;
     return t;
   }
-  
 
-//shows items on the page
-  showAllTests(arrayOfTests,pageIndex,itemsShown) {
-    
+  //shows items on the page
+  showAllTests(arrayOfTests, pageIndex, itemsShown) {
     arrayOfTests.forEach(e => {
       //e.remove();
-      e.html.style.display="none";
+      e.html.style.display = "none";
     });
-   
-    let start=pageIndex+pageIndex*(itemsShown-1);
+
+    let start = pageIndex + pageIndex * (itemsShown - 1);
     let end;
-    if(arrayOfTests.length<itemsShown){
-      end=arrayOfTests.length;
-    }else{
-      end=start+itemsShown;
+    if (arrayOfTests.length < itemsShown) {
+      end = arrayOfTests.length;
+    } else {
+      end = start + itemsShown;
     }
-    
+
     for (let i = start; i < end; i++) {
       arrayOfTests[i].showCard();
     }
-    
-    
   }
 
   filterTest() {
-    this.filteredTests.forEach(e=>e.html.style.display="none");
+    this.filteredTests.forEach(e => (e.html.style.display = "none"));
     this.filteredTests = filter(this.createdTests);
-    this.showAllTests(this.filteredTests,0,6);
+    this.showAllTests(this.filteredTests, 0, 6);
   }
-
-  
 }
 
 class Test {
@@ -73,20 +69,20 @@ class Test {
     this.time = test.time;
     this.score = test.score;
     //this.img=test.img;
-    
+
     this.currentPoints = 0;
     this.finalScore;
     this.createdQuestions = [];
     this.answeredQuestions = [];
     this.questionIndex = 0;
-    this.currentQuestionIndex=0;
+    this.currentQuestionIndex = 0;
     this.html;
     this.btnStart;
     // this.templateCopy =  document.querySelector("template").content.cloneNode(true);
   }
 
-
-  createTestInfo() { //creates HTML for test 
+  createTestInfo() {
+    //creates HTML for test
     this.html = createTestHTML(
       this.testName,
       this.testLevel,
@@ -95,18 +91,17 @@ class Test {
       this.score
     );
     this.btnStart = this.html.querySelector(".btn__start__test");
-    let thisTestIndex=this.testIndex;
-    this.btnStart.onclick=function(){
+    let thisTestIndex = this.testIndex;
+    this.btnStart.onclick = function() {
       console.log("btn start");
-      
-      localStorage.setItem('thisTestIndex', thisTestIndex.toString());
 
-    }
+      localStorage.setItem("thisTestIndex", thisTestIndex.toString());
+    };
   }
-  
 
-  showCard() { //card =>карточка теста
-    this.html.style.display="";
+  showCard() {
+    //card =>карточка теста
+    this.html.style.display = "";
   }
   createQuestion() {
     let q = new Question(
@@ -136,8 +131,8 @@ class Question {
     this.question = questions.question;
     this.answeredCorrectly = false;
     this.test = thisTest;
-    this.testIndex=thisTest.testIndex;
-    this.isShown=false;
+    this.testIndex = thisTest.testIndex;
+    this.isShown = false;
 
     this[1] = questions[1];
     this[2] = questions[2];
@@ -145,7 +140,7 @@ class Question {
     this[4] = questions[4];
     this.correctAnswer = questions.correctAnswer;
     this.usersAnswer;
-    this.btnNext ;
+    this.btnNext;
     this.html = createQuestionHtml(
       this[1],
       this[2],
@@ -156,7 +151,37 @@ class Question {
       thisTest
     );
   }
-  
+}
 
-  
+
+class User{
+  constructor(){
+    
+    this.userIndex;
+    this.username;
+    this.password;
+    this.isLoggedIn;
+    this.completedTests=[];
+  }
+
+  singUp(username,password,initTests){
+    this.username=username;
+    this.password=password;
+    this.userIndex=initTests.userIndex;
+    initTests.userIndex++;
+  }
+
+  logIn(input,passInput){
+     if(this.username===input && this.password===passInput){
+       this.isLoggedIn=true;
+     }
+  }
+
+  addCompletedTest(test){
+      this.completedTests.push({
+        test:test,
+        score:test.finalScore
+        //time:
+      });
+  }
 }
