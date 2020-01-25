@@ -7,7 +7,7 @@ class AllTests {
     this.userIndex=0;
     this.filteredTests = [];
     this.currentUser=JSON.parse(localStorage.getItem("currentUser"));
-    this.allUsers=JSON.parse(localStorage.getItem("AllUsers"));
+    this.allUsers=[];//JSON.parse(localStorage.getItem("AllUsers"));
     this.currentPage = 0;
     this.shownTests;
   }
@@ -67,6 +67,7 @@ class Test {
     this.testLevel = test.testLevel;
     this.testSubject = test.testSubject;
     this.time = test.time;
+    this.timeSpent;
     this.score = test.score;
     //this.img=test.img;
 
@@ -92,9 +93,10 @@ class Test {
     );
     this.btnStart = this.html.querySelector(".btn__start__test");
     let thisTestIndex = this.testIndex;
+    let time=this.time;
     this.btnStart.onclick = function() {
       console.log("btn start");
-
+      localStorage.setItem("thisTestTime",time);
       localStorage.setItem("thisTestIndex", thisTestIndex.toString());
     };
   }
@@ -130,7 +132,7 @@ class Question {
     this.questionIndex = questionIndex;
     this.question = questions.question;
     this.answeredCorrectly = false;
-    this.test = thisTest;
+    //this.test = thisTest;
     this.testIndex = thisTest.testIndex;
     this.isShown = false;
 

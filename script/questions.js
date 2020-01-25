@@ -21,13 +21,13 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
   let answers = [a1, a2, a3, a4];
   for (var i = 0; i < 4; i++) {
     let li = document.createElement("li");
-    li.setAttribute("data-ans", `${i + 1}`);
+    li.setAttribute("data-ans", `${i+1}`);
     let input = document.createElement("input");
     input.setAttribute("type", "radio");
     input.setAttribute("name", `quest${questionObj.questionIndex}`);
-    input.setAttribute("id", `answerCheckbox${i + 1}`);
+    input.setAttribute("id", `answerCheckbox${questionObj.questionIndex}${i+1}`);
     let label = document.createElement("label");
-    label.setAttribute("for", `answerCheckbox${i + 1}`);
+    label.setAttribute("for", `answerCheckbox${questionObj.questionIndex}${i+1}`);
     
 
     let answerText = document.createTextNode(answers[i]);
@@ -36,6 +36,7 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
     li.appendChild(label);
     li.onclick = function(e) {
       console.log("click", e.target);
+      console.log(questionObj);
       questionObj.usersAnswer = e.target.parentElement.getAttribute("data-ans");
       if (questionObj.answeredCorrectly) {
         if (questionObj.usersAnswer != questionObj.correctAnswer) {
