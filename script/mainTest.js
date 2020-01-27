@@ -4,12 +4,15 @@ let nextBtn = getElem(".btn__next");
 let finishBtn = getElem(".finish__btn");
 let questNum = getElem(".question__number");
 let homeBtn=getElem(".nav__item");
+let result = getElem(".result");
 homeBtn.onclick=function(){
   setToStorage("showMyTests",false);
 
 }
 let questionContainer = getElem(".question__container");
 let test = new Test(tests[thisTestIndex], thisTestIndex);
+hide(result);
+
 test.createAllQuestions();
 test.createdQuestions[test.currentQuestionIndex].isShown = true;
 showQuestNumber();
