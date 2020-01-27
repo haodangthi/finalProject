@@ -13,13 +13,13 @@ class AllTests {
   }
 
   createAllTests() {
-    //
-    let allTestCont = document.querySelector(".allTests__container");
+    
+    let allTestCont = getElem(".allTests__container");
 
     for (var i = 0; i < tests.length; i++) {
       let t = this.createTest();
       t.createTestInfo();
-      t.html.style.display = "none";
+      hide(t.html);
       allTestCont.appendChild(t.html);
     }
     
@@ -36,7 +36,7 @@ class AllTests {
   showAllTests(arrayOfTests, pageIndex, itemsShown) {
     arrayOfTests.forEach(e => {
       //e.remove();
-      e.html.style.display = "none";
+      hide(e.html);
     });
 
     let start = pageIndex + pageIndex * (itemsShown - 1);
@@ -94,10 +94,20 @@ class Test {
     this.btnStart = this.html.querySelector(".btn__start__test");
     let thisTestIndex = this.testIndex;
     let time=this.time;
+    let thisTest=this;
     this.btnStart.onclick = function() {
-      console.log("btn start");
-      localStorage.setItem("thisTestTime",time);
-      localStorage.setItem("thisTestIndex", thisTestIndex.toString());
+      
+      if(getStorage("currentUser")==null){
+        
+        alert('Log In to take a test');
+        return false;
+      } else{
+        console.log("btn start");
+        setToStorage("thisTestTime",time);
+        setToStorage("thisTestIndex", thisTestIndex);
+      }
+
+
     };
   }
 
@@ -179,11 +189,5 @@ class User{
      }
   }
 
-  addCompletedTest(test){
-      this.completedTests.push({
-        test:test,
-        score:test.finalScore
-        //time:
-      });
-  }
+  
 }

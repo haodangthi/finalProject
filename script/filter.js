@@ -47,15 +47,12 @@ function filter(arrayOfTest) {
   let timeTest = [];
 
   for (let i = 0; i < levelFilters.length; i++) {
-    
     for (var j = 0; j < arrayOfTest.length; j++) {
       if (arrayOfTest[j].testLevel == levelFilters[i].id) {
         showTest.push(arrayOfTest[j]);
       }
     }
   }
-
-  
 
   for (let i = 0; i < subjectFilters.length; i++) {
     for (let j = 0; j < showTest.length; j++) {
@@ -73,7 +70,6 @@ function filter(arrayOfTest) {
       }
     }
   }
-  
 
   return timeTest;
 }

@@ -1,19 +1,23 @@
-let thisTestIndex = +localStorage.getItem("thisTestIndex");
-let backBtn = document.querySelector(".btn__back");
-let nextBtn = document.querySelector(".btn__next");
-let finishBtn=document.querySelector(".finish__btn");
+let thisTestIndex = getStorage("thisTestIndex");
+let backBtn = getElem(".btn__back");
+let nextBtn = getElem(".btn__next");
+let finishBtn = getElem(".finish__btn");
+let questNum = getElem(".question__number");
+let homeBtn=getElem(".nav__item");
+homeBtn.onclick=function(){
+  setToStorage("showMyTests",false);
 
-let questionContainer = document.querySelector(".question__container");
+}
+let questionContainer = getElem(".question__container");
 let test = new Test(tests[thisTestIndex], thisTestIndex);
 test.createAllQuestions();
 test.createdQuestions[test.currentQuestionIndex].isShown = true;
-
-
+showQuestNumber();
 
 for (let i = 0; i < test.createdQuestions.length; i++) {
   questionContainer.appendChild(test.createdQuestions[i].html);
   if (test.createdQuestions[i].isShown == false) {
-    test.createdQuestions[i].html.style.display = "none";
+    hide(test.createdQuestions[i].html);
   }
 }
 
@@ -21,46 +25,59 @@ backBtn.onclick = function() {
   if (test.currentQuestionIndex - 1 < 0) {
     return true;
   } else {
-    test.createdQuestions[test.currentQuestionIndex].html.style.display =
-      "none";
+    hide(test.createdQuestions[test.currentQuestionIndex].html);
     test.createdQuestions[test.currentQuestionIndex].isShown = false;
-    test.createdQuestions[test.currentQuestionIndex - 1].html.style.display =
-      "";
+    show(test.createdQuestions[test.currentQuestionIndex - 1].html);
     test.createdQuestions[test.currentQuestionIndex - 1].isShown = true;
-
     test.currentQuestionIndex--;
+    showQuestNumber();
   }
 };
+
 nextBtn.onclick = function() {
   if (test.currentQuestionIndex + 1 == test.createdQuestions.length) {
-    //создать кнопку финиш
     return true;
   } else {
-    test.createdQuestions[test.currentQuestionIndex].html.style.display =
-      "none";
+    hide(test.createdQuestions[test.currentQuestionIndex].html);
+
     test.createdQuestions[test.currentQuestionIndex].isShown = false;
-    test.createdQuestions[test.currentQuestionIndex + 1].html.style.display =
-      "";
+    show(test.createdQuestions[test.currentQuestionIndex + 1].html);
     test.createdQuestions[test.currentQuestionIndex + 1].isShown = true;
 
     test.currentQuestionIndex++;
+    showQuestNumber();
   }
 };
 
+finishBtn.onclick = function() {
+  finishTest();
+  show(result);
 
-finishBtn.onclick=function(){
   console.log("finish");
-  test.finalScore=test.currentPoints;
-  test.timeSpent=Math.floor(allSec/60);
-  let user=JSON.parse(localStorage.getItem("currentUser"));
+  test.finalScore = test.currentPoints;
+  test.timeSpent = Math.floor(allSec / 60);
+  let user = getStorage("currentUser");
   user.completedTests.push(test);
-  localStorage.setItem("currentUser",JSON.stringify(user));
-  
-  let all=JSON.parse(localStorage.getItem("AllUsers"));
-  all.forEach(u=>{
-    if (u.username==user.username){
+  setToStorage("currentUser", user);
+  let score = document.createTextNode(`Your score is ${test.finalScore}.`);
+  yourScore.appendChild(score);
+  let time = document.createTextNode(`You spent ${test.timeSpent} minutes.`);
+  yourTime.appendChild(time);
+
+  let all = getStorage("AllUsers");
+  all.forEach(u => {
+    if (u.username == user.username) {
       u.completedTests.push(test);
     }
   });
-  localStorage.setItem("AllUsers",JSON.stringify(all));
+
+  setToStorage("AllUsers", all);
+};
+
+function showQuestNumber() {
+  let questNumText = document.createTextNode(
+    `Question ${test.currentQuestionIndex + 1}/${test.createdQuestions.length}`
+  );
+  questNum.innerHTML = "";
+  questNum.appendChild(questNumText);
 }

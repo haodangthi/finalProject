@@ -56,7 +56,7 @@ function createQuestionHtml(a1, a2, a3, a4, quest, questionObj, thisTest) {
   }
   q.appendChild(quesH1);
   q.appendChild(answList);
-  //q.appendChild(questionObj.btnNext);
+  
   return q;
 }
 

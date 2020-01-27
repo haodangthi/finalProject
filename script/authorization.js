@@ -1,59 +1,42 @@
-let loggedOut = document.querySelector(".loggedOut");
-let loggedIn = document.querySelector(".logged__in");
+let loggedOut = getElem(".loggedOut");
+let loggedIn = getElem(".logged__in");
+let loginForm = getElem("#log__in");
+let signUpForm = getElem("#sign__up");
+
+let signUpBtn = getElem(".sign_up");
+let signUp = getElem(".submit__username");
+let logIn = getElem(".submit__login");
+let logOut = document.getElementsByClassName("profile__menu__item")[1];
+let close = Array.from(document.getElementsByClassName("close"));
+let logInBtn = Array.from(document.getElementsByClassName("actionBtn"));
+
+
+hide(loginForm);
+hide(signUpForm);
 
 if (localStorage.getItem("currentUser") == null) {
-  loggedOut.style.display = "";
-  loggedIn.style.display = "none";
+  show(loggedOut);
+  hide(loggedIn);
 } else {
-  loggedOut.style.display = "none";
-  loggedIn.style.display = "";
+  hide(loggedOut);
+  show(loggedIn);
 }
 
-var loginForm = document.querySelector("#log__in");
-loginForm.style.display = "none";
-var signUpForm = document.querySelector("#sign__up");
-signUpForm.style.display = "none";
-let menu = document.querySelector(".profile__menu");
-menu.style.display = "none";
-
-//LOG OUT BTN
-let logOut = document.getElementsByClassName("profile__menu__item")[1];
-logOut.onclick = function() {
-  if (initTests.currentUser) {
-    initTests.currentUser.isLoggedIn = false;
-    initTests.currentUser = null;
-    localStorage.removeItem("currentUser");
-    console.log("Logged out");
-    loggedOut.style.display = "";
-    loggedIn.style.display = "none";
-  }
-};
-
-let profileBtn = document.querySelector(".dropdown__btn").children[0];
-profileBtn.onclick = function() {
-  if (menu.style.display == "none") {
-    console.log("clicked");
-    menu.style.display = "";
-  } else {
-    menu.style.display = "none";
-  }
-};
 
 //SIGN UP BUTTON to open a Form
-var signUpBtn = document.querySelector(".sign_up");
 signUpBtn.onclick = function() {
-  signUpForm.style.display = "";
+  show(signUpForm);
 };
 //SIGN UP BUTTON ON FORM
-let signUp = document.querySelector(".submit__username");
+
 signUp.onclick = function() {
-  let createLogInput = document.querySelector('input[name="create__uname"]')
+  let createLogInput = getElem('input[name="create__uname"]')
     .value;
 
-  let createLogPass = document.querySelector('input[name="password"]').value;
+  let createLogPass = getElem('input[name="password"]').value;
   console.log(createLogPass, createLogInput);
 
-  if (usernameExists(createLogInput)) {
+  if (usernameExists(initTests.allUsers, createLogInput)) {
     alert("This username alredy exists");
   } else {
     let user = new User();
@@ -61,40 +44,58 @@ signUp.onclick = function() {
       user.singUp(createLogInput, createLogPass, initTests);
 
       initTests.allUsers.push(user);
-      localStorage.setItem("AllUsers", JSON.stringify(initTests.allUsers));
+      
+      setToStorage("AllUsers", initTests.allUsers);
+      hide(signUpForm);
     }
     return user;
   }
 };
 //LOGIN BTN ON FORM
-let logIn = document.querySelector(".submit__login");
+
 logIn.onclick = function() {
-  let logInput = document.querySelector('input[name="uname"]').value;
-  let logPass = document.querySelector('input[name="psw"]').value;
+  let logInput = getElem('input[name="uname"]').value;
+  let logPass = getElem('input[name="psw"]').value;
   let user = findUser(initTests.allUsers, logInput);
   if (user.password == logPass) {
     initTests.currentUser = user;
     user.isLoggedIn = true;
-    localStorage.setItem("currentUser", JSON.stringify(initTests.currentUser));
-    loggedOut.style.display = "none";
-    loggedIn.style.display = "";
-    menu.style.display = "none";
+    setToStorage("currentUser",initTests.currentUser);
+   
+    hide(loggedOut);
+    show(loggedIn);
+    profileName();
+    hide(menu);
+    hide(loginForm);
+  }
+};
+
+
+
+logOut.onclick = function() {
+  if (initTests.currentUser) {
+    initTests.currentUser.isLoggedIn = false;
+    initTests.currentUser = null;
+    localStorage.removeItem("currentUser");
+    console.log("Logged out");
+    show(loggedOut);
+    hide(loggedIn);
   }
 };
 
 // close btns on Modals
-var close = Array.from(document.getElementsByClassName("close"));
+
 close.forEach(element => {
   element.onclick = function() {
-    element.parentElement.parentElement.style.display = "none";
+    hide(element.parentElement.parentElement);
   };
 });
 
 //LOGIN BTN to OPEN a form
-var logInBtn = Array.from(document.getElementsByClassName("actionBtn"));
+
 logInBtn.forEach(e => {
   e.onclick = function() {
-    loginForm.style.display = "";
+    show(loginForm);
   };
 });
 
@@ -124,9 +125,9 @@ function checkSignUpForm(login, password) {
 }
 
 //checks whether username is valid or not
-function usernameExists(username) {
+function usernameExists(array, username) {
   let found;
-  initTests.allUsers.forEach(e => {
+  array.forEach(e => {
     if (e.username === username) {
       found = true;
     }
@@ -143,3 +144,6 @@ function findUser(array, username) {
   });
   return user;
 }
+
+
+

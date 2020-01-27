@@ -1,9 +1,9 @@
-let input = document.querySelector("#findTest");
+let input = getElem("#findTest");
 
 input.onkeyup = function() {
   let inValue = input.value.toUpperCase();
-  let shownTests = initTests.filteredTests;
-  console.log(shownTests.length);
+  let shownTests = initTests.createdTests;
+  
   let search=[];
   for (var i = 0; i < shownTests.length; i++) {
     if (
@@ -13,15 +13,14 @@ input.onkeyup = function() {
       
       search.push(shownTests[i]);
     } else {
+      hide(shownTests[i].html);
       
-      shownTests[i].html.style.display = "none";
-    }
-    console.log(search);
     
-    initTests.showAllTests(search,0,6);
+    initTests.filteredTests=search;
+    initTests.showAllTests(initTests.filteredTests,0,6);
+   
+    
   }
 
-  if (inValue == null) {
-    initTests.filterTest();
-  }
+ 
 };

@@ -111,7 +111,7 @@ var tests = [
     testSubject: "english",
     time: 30,
     score: 10
-    // img:"../img/illustrations/clip-bio-technologies.png"
+    
   },
   {
     testName: "Past Simple",

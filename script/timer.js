@@ -1,40 +1,44 @@
-var timer = document.querySelector(".timer");
-var startBtn = document.querySelector("#startBtn");
-var dateNow = document.querySelector(".dateNow");
+var timer = getElem(".timer");
+var startBtn = getElem("#startBtn");
+var dateNow = getElem(".dateNow");
 var timerFunc;
 var startTime;
 var startSec;
 var startMin;
 
 let allSec;
-let givenTime =+localStorage.getItem("thisTestTime");
-
-let shownMin = document.querySelector(".minutes");
-let shownSec = document.querySelector(".seconds");
-let shownHours = document.querySelector(".hours");
+let givenTime = getStorage("thisTestTime");//+localStorage.getItem("thisTestTime");
+let seconds = document.createTextNode("00");
+let hours = document.createTextNode(`0${Math.floor(givenTime / 60)}`);
 let minutes;
-if (givenTime%60 < 10) {
+let shownMin = getElem(".minutes");
+let shownSec = getElem(".seconds");
+let shownHours = getElem(".hours");
+
+let container=getElem(".questions__container");
+hide(container);
+
+if (givenTime % 60 < 10) {
   minutes = document.createTextNode(`0${givenTime % 60}`);
 } else {
   minutes = document.createTextNode(`${givenTime % 60}`);
 }
 
-let seconds = document.createTextNode("00");
-let hours = document.createTextNode(`0${Math.floor(givenTime / 60)}`);
+
 
 shownMin.appendChild(minutes);
 shownSec.appendChild(seconds);
 shownHours.appendChild(hours);
-startBtn.onclick = function() {
-  startTime = new Date();
-  //console.log();
 
+
+startBtn.onclick = function() {
+  hideBanner();
+  startTime = new Date();
   startMin = startTime.getMinutes();
   startSec = startTime.getSeconds();
 
-   timerFunc = setInterval(() => {
+  timerFunc = setInterval(() => {
     let currentTime = new Date();
-    
     let currentMin = currentTime.getMinutes();
     let currentSec = currentTime.getSeconds();
 
@@ -44,7 +48,7 @@ startBtn.onclick = function() {
     let givenMinutes;
     extraMinutes = givenTime % 60;
 
-    allSec = getSecPassed(currentSec, min) - 1; 
+    allSec = getSecPassed(currentSec, min) - 1;
     //console.log("allsec",allSec);
     if (extraMinutes <= allSec / 60) {
       givenMinutes = 59;
@@ -52,9 +56,10 @@ startBtn.onclick = function() {
       givenMinutes = extraMinutes - 1;
       givenHours++;
     }
-    if (allSec+1 == givenTime * 60) { // +1, в начале отнимала
-      
-      clearInterval(timerFunc);
+    if (allSec + 1 == givenTime * 60) {
+      // +1, в начале отнимала
+      finishTest();
+      show(result);
     }
     if (givenHours - Math.floor(allSec / 3600) < 10) {
       hours = document.createTextNode(
@@ -89,9 +94,7 @@ startBtn.onclick = function() {
   }, 1000);
 };
 
-function getHoursPassed(allSec) {
-  return Math.floor(allSec / 3600);
-}
+
 function getMinPassed(currentMin) {
   let minPassed;
   if (currentMin >= startMin) {
@@ -116,9 +119,14 @@ function getSecPassed(currentSec, minPassed) {
   return allSec;
 }
 
-
-function finishTest(){
+function finishTest() {
   clearInterval(timerFunc);
-  
-
+  hide(container);
 }
+
+
+function hideBanner(){
+  let banner= document.querySelector(".banner");
+  hide(banner);
+  show(container);//question container
+}  
