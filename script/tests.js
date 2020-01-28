@@ -130,10 +130,10 @@ var tests = [
     score: 10
   },
   {
-    testName: "Past Continuous",
+    testName: "Triangles",
     testQuestions: test1,
     testLevel: "advanced",
-    testSubject: "english",
+    testSubject: "math",
     time: 60,
     score: 10
   },
@@ -153,27 +153,27 @@ var tests = [
     time: 90,
     score: 10
   },{
-    testName: "Present Simple 2",
+    testName: "Linear algebra",
     testQuestions: test1,
     testLevel: "beginner",
-    testSubject: "english",
+    testSubject: "math",
     time: 30,
     score: 10
     // img:"../img/illustrations/clip-bio-technologies.png"
   },
   {
-    testName: "Past Simple",
+    testName: "Past Tense",
     testQuestions: test2,
     testLevel: "advanced",
-    testSubject: "english",
+    testSubject: "ukrainian",
     time: 30,
     score: 10
   },
   {
-    testName: "Articles",
+    testName: "Algebra 1",
     testQuestions: test1,
     testLevel: "intermediate",
-    testSubject: "english",
+    testSubject: "math",
     time: 30,
     score: 10
   },
@@ -186,18 +186,18 @@ var tests = [
     score: 10
   },
   {
-    testName: "Present Perfect Continuous",
+    testName: "Idioms",
     testQuestions: test1,
     testLevel: "intermediate",
-    testSubject: "english",
-    time: 60,
+    testSubject: "ukrainian",
+    time: 90,
     score: 10
   },
   {
-    testName: "Past Perfect Continuous",
+    testName: "Calculus",
     testQuestions: test1,
     testLevel: "advanced",
-    testSubject: "english",
+    testSubject: "math",
     time: 90,
     score: 10
   }

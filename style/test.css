@@ -1,3 +1,5 @@
+
+
 @import url('main.css');
 
 body{
@@ -10,6 +12,8 @@ body{
   
 }
 
+
+
 .question__container{
 	background-color: white;
 	max-width: 600px;
@@ -20,8 +24,11 @@ body{
 }
 .buttons {
 	max-width: 1000px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-	justify-content: space-around;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 	
     margin: 0 auto;
 }
@@ -36,13 +43,22 @@ padding: 20px;
 border-radius: 40px;
 margin-top: 20px;
 border: none;
+-webkit-transition: all 0.4s ease 0s;
+-o-transition: all 0.4s ease 0s;
 transition: all 0.4s ease 0s;
 }
 
 .question__container{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .question__container h1{
 	font-size: 24px;
@@ -52,10 +68,17 @@ transition: all 0.4s ease 0s;
 }
 
 .quest__finish{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
     
-    align-items: center;
-    justify-content: space-around;
+    -webkit-box-align: center;
+    
+        -ms-flex-align: center;
+    
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
 }
 .question__number{
 	font-size: 2em;
@@ -94,8 +117,12 @@ p{
 }
 
 .result{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     background: white;
     padding: 35px 0;
     border-radius: 50px;
@@ -126,8 +153,9 @@ h1{
 		margin: 0 auto;
 	}
 	.buttons{
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 	}
 }
-
 

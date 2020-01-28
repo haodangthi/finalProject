@@ -1,12 +1,76 @@
 
+@media screen and (min-width:960px){
+  
+.banner {
+    
+    -webkit-box-pack: justify;
+    
+        -ms-flex-pack: justify;
+    
+            justify-content: space-between;
+    
+}
+
+
+ }
+
+ @media screen and (max-width:960px){
+     .allTests__container{
+  	-webkit-box-pack: center;
+  	    -ms-flex-pack: center;
+  	        justify-content: center;
+  }
+
+  .banner {
+    
+    -webkit-box-pack: center;
+    
+        -ms-flex-pack: center;
+    
+            justify-content: center;
+    
+}
+
+.container{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+   }
+
+ }
+
 @media screen and (min-width:700px)
 {
     .burger__menu,.burger__menu2{
         
         display: none;
       }
+      .search__container input{
+    width: 400px;
+    margin: 20px 0 0 0;
 }
+
+   .header__section{
+	padding-bottom: 150px;
+}
+
+   
+    
+      
+}
+
+
 @media screen and (max-width:700px){
+	
+.map iframe{
+  width:80%; 
+  
+}
 body{
     width:100%;
     
@@ -16,20 +80,18 @@ section {
     
 }
 nav{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: relative;
 }
 
-/* .reverse{
-    flex-direction: column-reverse;
-}
-.column{
-    flex-direction: column;
-} */
 
 .username{display: none;}
 .logged__in{
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 .loggedOut,.nav__list,.banner,.filters__container,.container,.login{
     display: block;
@@ -99,6 +161,7 @@ main{padding-top: 10px;}
     margin: 0px auto 0 10px;
     
   }
+ 
 }
   
   

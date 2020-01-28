@@ -1,8 +1,12 @@
+
+
 ul {
   list-style-type: none;
 }
 
 .nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .nav__list {
@@ -16,8 +20,12 @@ ul {
   color: #117243;
 }
 nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .nav__item:hover a{
     color: white;

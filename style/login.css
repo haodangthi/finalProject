@@ -1,4 +1,3 @@
-
 /* login */
 .close {
     font-size: 40px;
@@ -38,6 +37,8 @@
     background: none;
   }
   .login ,.loggedOut,.logged__in{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   .login{
@@ -62,8 +63,13 @@
 
   .login__input {
     margin: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .login__input input{
       height: 40px;
