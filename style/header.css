@@ -1,0 +1,36 @@
+
+
+.header__section {
+    position: relative;
+    
+  }
+header {
+    background-color: #c9ffbf;
+  }
+  
+  .banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  
+  .banner__image img{
+    max-width: 600px;
+    max-height: 600px;
+    display: block;
+    /* background-image: url(../img/illustrations/Server_Woman_-_Colour/drawkit-server-woman-colour-800px.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
+  
+  .action {
+    display: flex;
+    
+    flex-direction: column;
+    
+  }
+  .banner__text h1 {
+    margin-bottom: 20px;
+  }

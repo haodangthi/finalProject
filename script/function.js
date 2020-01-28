@@ -1,3 +1,21 @@
+let burger=getElem(".burger__menu").children[0];
+let closeBurger = getElem(".burger__menu2").children[0];
+let burgerMenu=getElem(".burger__menu");
+let navList=getElem(".nav__list");
+let nav=getElem("nav");
+closeBurger.classList.add("hide");
+burger.onclick=function(){
+  console.log("click");
+  if(navList.classList.contains("hide")){
+    navList.classList.remove("hide");
+    
+  }
+ 
+}
+closeBurger.onclick=function(){
+  navList.classList.add("hide");
+}
+
 function getStorage(key){
     return JSON.parse(localStorage.getItem(key));
   }

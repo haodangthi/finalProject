@@ -1,5 +1,6 @@
 let myTests = getElem(".myTests");
 let completedTests = getStorage("currentUser").completedTests;
+
 console.log(completedTests);
 
 if (getStorage("showMyTests")) {

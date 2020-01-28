@@ -1,0 +1,111 @@
+
+/* login */
+.close {
+    font-size: 40px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    cursor: pointer;
+  }
+  .modal {
+    border-radius: 30px;
+    width: 400px;
+   
+    position: absolute;
+    
+    top: 25%;
+    left: 25%;
+    padding: 30px;
+    background-color: white;
+  }
+
+.actionBtn {
+    width: 250px;
+    height: 40px;
+    padding: 11px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #fff;
+    background: green;
+    line-height: 0px;
+  }
+  .login .actionBtn {
+    border: 1px solid green;
+    color: green;
+    background: none;
+  }
+  .login ,.loggedOut,.logged__in{
+    display: flex;
+  }
+  .login{
+    position: relative;
+  }
+
+  .sign_up {
+    line-height: 40px;
+    cursor: pointer;
+  }
+  
+  .sign_up,
+  .username,
+  .login__img img,
+  .login .actionBtn {
+    margin: 20px 10px 0 0;
+  }
+  .header {
+    color: #00dc7d;
+    font-size: 40px;
+  }
+
+  .login__input {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  .login__input input{
+      height: 40px;
+      padding: 0 10px;
+      margin: 10px 0 0 0;
+  }
+  
+  .submit__username,.submit__login{
+    height: 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+  }
+
+
+
+    /* PROFILE */
+.profile__menu{
+ 
+    position: absolute;
+    right: 0;
+    top: 70px;
+    background: white;
+      
+  }
+  .profile__menu__item{
+    padding:10px 10px;
+  }
+  
+  .login__img img {
+    width: 40px;
+    height: 40px;
+  }
+  .dropdown__btn {
+    padding: 25px 0 0 0;
+  }
+  .dropdown__btn img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .username {
+    font-size: 24px;
+    padding: 10px;
+  }

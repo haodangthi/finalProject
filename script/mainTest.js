@@ -5,6 +5,8 @@ let finishBtn = getElem(".finish__btn");
 let questNum = getElem(".question__number");
 let homeBtn=getElem(".nav__item");
 let result = getElem(".result");
+let yourScore=getElem(".score__res");
+let yourTime=getElem(".time__res");
 homeBtn.onclick=function(){
   setToStorage("showMyTests",false);
 

@@ -1,0 +1,72 @@
+h3 {
+    font-size: 22px;
+    margin: 10px 0;
+    width: 200px;
+  }
+  
+  h6 {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  i {
+    color: black;
+    display: block;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  .jc-center {
+    display: flex;
+    justify-content: center;
+  }
+  .allTests__container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .test__container {
+    width: 250px;
+    margin-right: 50px;
+    display: flex;
+    border-radius: 40px;
+    justify-content: center;
+    margin-top: 20px;
+    background-color:#5BFF62;
+    padding: 20px 0px 30px 0;
+  }
+  
+  .test__img {
+    width: 200px;
+    height: 125px;
+    display: block;
+    background-image: url(../img/illustrations/clip-bio-technologies.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  
+  .btn__start__test {
+    width: 200px;
+    font-size: 18px;
+    border-radius: 20px;
+    background: #E4FFF9;
+    color: #000;
+    padding: 10px;
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  
+  
+  
+  main {
+    padding-top: 100px;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  

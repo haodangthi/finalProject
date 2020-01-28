@@ -1,0 +1,29 @@
+
+/* PAGINATION */
+.pagination__wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .pagination {
+    display: flex;
+  }
+  .pagination__item1,
+  .pagination__item {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 10px;
+    border-radius: 15px;
+    border: none;
+    background: #C9FFBF;
+  }
+  
+  .pagination__item1:hover,
+  .pagination__item:hover {
+    background-color:#5BFF62;
+    cursor: pointer;
+  }
+  

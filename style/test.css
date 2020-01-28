@@ -1,4 +1,133 @@
-.question{
-	width: 400px;
-	border: 1px solid black;
+@import url('/style/main.css');
+
+body{
+	background-color: #c9ffbf;
 }
+.banner__img img{
+  max-width: 600px;
+  max-height: 500px;
+  display: block;
+  
+}
+
+.question__container{
+	background-color: white;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 50px;
+	border-radius: 50px;
+
+}
+.buttons {
+	max-width: 1000px;
+    display: flex;
+	justify-content: space-around;
+	
+    margin: 0 auto;
+}
+
+.buttons button,.finish__btn{
+	color:white;
+
+text-transform: uppercase;
+text-decoration: none;
+background: #60a3bc;
+padding: 20px;
+border-radius: 40px;
+margin-top: 20px;
+border: none;
+transition: all 0.4s ease 0s;
+}
+
+.question__container{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.question__container h1{
+	font-size: 24px;
+}
+.question__container li{
+	margin: 20px 0 0 0;
+}
+
+.quest__finish{
+	display: flex;
+    
+    align-items: center;
+    justify-content: space-around;
+}
+.question__number{
+	font-size: 2em;
+	line-height: 50px;
+}
+.finish__btn{
+	width: 100px;
+	background: #60bc86;
+ margin: 20px;
+}
+.timer__wrapper{
+	text-align: center;
+	margin: 20px;
+}
+.hours,.minutes,.seconds,.timer__wrapper{
+	font-size: 50px;
+	color: #008736;
+}
+
+
+/* my tests */
+
+h1{
+	font-size: 1.5em;
+}
+p{
+	font-size: 1.2em;
+}
+
+.myTest__container
+{
+	background: #FFF;
+    padding: 30px;
+	border-radius: 40px;
+	margin: 20px 0;
+}
+
+.result{
+	display: flex;
+    justify-content: center;
+    background: white;
+    padding: 35px 0;
+    border-radius: 50px;
+    max-width: 500px;
+    margin: 50px auto;
+}
+h1{
+	
+}
+.result h1{
+	font-size: 3em;
+	color: #FFD600;
+}
+
+.myTests h1{
+	font-size: 2em;
+	
+}
+
+
+
+
+@media screen and (max-width:700px){
+
+
+	.question__container,.buttons,.result {
+		width: 80%;
+		margin: 0 auto;
+	}
+	.buttons{
+		justify-content: space-between;
+	}
+}
+
+
