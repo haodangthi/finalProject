@@ -1,12 +1,12 @@
-@import url(/style/header.css);
-@import url('/style/navigation.css');
-@import url(/style/login.css);
-@import url(/style/filter.css);
-@import url('/style/tests.css');
-@import url(/style/pagination.css);
-@import url('/style/footer.css');
-@import url('/style/media.css');
-@import url('/fontawesome-free-5.11.2-web/css/all.css');
+@import url('header.css');
+@import url('navigation.css');
+@import url('login.css');
+@import url('filter.css');
+@import url('tests.css');
+@import url('pagination.css');
+@import url('footer.css');
+@import url('media.css');
+
 
 @font-face {
  font-family: muli;
