@@ -50,6 +50,6 @@ a {
 
 
 
-
-
-
+.display__none{
+  display: none;
+}

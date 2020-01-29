@@ -11,21 +11,27 @@ let close = Array.from(document.getElementsByClassName("close"));
 let logInBtn = Array.from(document.getElementsByClassName("actionBtn"));
 
 
-hide(loginForm);
-hide(signUpForm);
+// hide(loginForm);
+// hide(signUpForm);
 
 if (localStorage.getItem("currentUser") == null) {
-  show(loggedOut);
-  hide(loggedIn);
+  // show(loggedOut);
+
+  // hide(loggedIn);
+  loggedIn.classList.add("display__none");
+  loggedOut.classList.remove("display__none");
 } else {
-  hide(loggedOut);
-  show(loggedIn);
+  loggedIn.classList.remove("display__none");
+  loggedOut.classList.add("display__none");
+  // hide(loggedOut);
+  // show(loggedIn);
 }
 
 
 //SIGN UP BUTTON to open a Form
 signUpBtn.onclick = function() {
-  show(signUpForm);
+  //show(signUpForm);
+  signUpForm.classList.remove("display__none");
 };
 //SIGN UP BUTTON ON FORM
 
@@ -46,7 +52,8 @@ signUp.onclick = function() {
       initTests.allUsers.push(user);
       
       setToStorage("AllUsers", initTests.allUsers);
-      hide(signUpForm);
+      //hide(signUpForm);
+      signUpForm.classList.add("display__none");
     }
     return user;
   }
@@ -62,11 +69,16 @@ logIn.onclick = function() {
     user.isLoggedIn = true;
     setToStorage("currentUser",initTests.currentUser);
    
-    hide(loggedOut);
-    show(loggedIn);
+   // hide(loggedOut);
+    //show(loggedIn);
+    loggedOut.classList.add("display__none");
+    loggedIn.classList.remove("display__none");
+    //hide(menu);
+   // hide(loginForm);
+    
     profileName();
-    hide(menu);
-    hide(loginForm);
+    menu.classList.add("display__none");
+    loginForm.classList.add("display__none");
   }
 };
 
@@ -78,8 +90,10 @@ logOut.onclick = function() {
     initTests.currentUser = null;
     localStorage.removeItem("currentUser");
     console.log("Logged out");
-    show(loggedOut);
-    hide(loggedIn);
+    //show(loggedOut);
+    //hide(loggedIn);
+    loggedOut.classList.remove("display__none");
+    loggedIn.classList.add("display__none");
   }
 };
 
@@ -87,7 +101,7 @@ logOut.onclick = function() {
 
 close.forEach(element => {
   element.onclick = function() {
-    hide(element.parentElement.parentElement);
+    element.parentElement.parentElement.classList.add("display__none");
   };
 });
 
@@ -95,7 +109,8 @@ close.forEach(element => {
 
 logInBtn.forEach(e => {
   e.onclick = function() {
-    show(loginForm);
+    //show(loginForm);
+    loginForm.classList.remove("display__none");
   };
 });
 

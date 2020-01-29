@@ -3,9 +3,9 @@ let completedTests = getStorage("currentUser").completedTests;
 
 console.log(completedTests);
 
-if (getStorage("showMyTests")) {
-  show(myTests);
-}
+// if (getStorage("showMyTests")) {
+//   show(myTests);
+// }
 
 completedTests.forEach(element => {
   let resContainer = createElem("div", "myTests__container", "", myTests);

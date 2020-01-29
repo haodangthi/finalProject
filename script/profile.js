@@ -1,14 +1,14 @@
 let welcomeName=getElem(".username");
 profileName();
 let menu = getElem(".profile__menu");
-hide(menu);
+menu.classList.add("display__none");
 let profileBtn = getElem(".dropdown__btn").children[0];
 profileBtn.onclick = function() {
-  if (menu.style.display == "none") {
+  if (menu.classList.contains("display__none")) {
     console.log("clicked");
-    show(menu)
+    menu.classList.remove("display__none");
   } else {
-    hide(menu);
+    menu.classList.add("display__none");
   }
 };
 
